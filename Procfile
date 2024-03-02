@@ -1,0 +1,1 @@
+web: gunicorn soul_base.wsgi
