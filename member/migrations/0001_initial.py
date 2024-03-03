@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MemberLogin',
             fields=[
-                ('member', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='book.member')),
+                ('member', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, primary_key=True, serialize=False, to='member.member')),
                 ('username', models.CharField(max_length=150, unique=True)),
                 ('password', models.CharField(max_length=150)),
             ],

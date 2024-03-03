@@ -18,11 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from contact import views as contact_views
 from main import views as main_views
-from book import views as book_views
+from member import views as member_views
 
 urlpatterns = [
     path('', main_views.index, name='homepage'),
-    path('book/', book_views.index, name='book'),
+    path('member/', member_views.index, name='member'),
     path('contact/', contact_views.index, name='contact'),
     path('admin/', admin.site.urls),
 ]
