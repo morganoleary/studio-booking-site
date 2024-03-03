@@ -33,6 +33,7 @@ This app will allow users to book classes for this pilates/dance studio.
 ## Automated Testing:
 
 ## Bugs/Unfixed Bugs:
+- Fixed: When creating my apps, I decided I needed to separate my models for member details from the class details and booking models in a separate app. I changed the name of my original 'book' app to 'member' as this already contained my Member and MemberLogin models that had been migrated to the database and deployed on Heroku. I followed the steps and successfully changed the name of the app by utilizing the [django-rename-app](https://github.com/odwyersoftware/django-rename-app?tab=readme-ov-file).
 
 # Deployment
 
