@@ -56,7 +56,8 @@ Deploy on Heroku:
 ### Help with settings.py:
 - Student support on Slack was very helpful setting up database configurations in the settings.py file.
 - [Creating a Database](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/ed8c75412c784bbba17988f7efbe037b/?child=first) content in the "I Think Therefore I Blog" walkthrough was utilized to create the database. 
-
+### Help with Django:
+- [Django Documentation](https://docs.djangoproject.com/en/5.0/)
 
 ### Content
 Soul Base Pilates Studio - My sister's pilates studio based in Iowa, USA.
