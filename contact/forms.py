@@ -1,5 +1,5 @@
 from django import forms
-from .models import ContactRequest
+from .models import ContactRequest, DropdownObject
 
 class ContactForm(forms.ModelForm):
     class Meta:

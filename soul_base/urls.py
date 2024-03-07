@@ -24,7 +24,7 @@ from class_booking import views as class_booking_views
 urlpatterns = [
     path('', main_views.index, name='homepage'),
     path('booking/', class_booking_views.index, name='booking'),
-    path('contact/', include('contact.urls'), name='contact-urls'),
+    path('contact/', include('contact.urls'), name='contact'),
     path('member/', member_views.index, name='member'),
     path('admin/', admin.site.urls),
 ]

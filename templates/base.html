@@ -2,7 +2,7 @@
 
 {% url 'homepage' as homepage_url %}
 {% url 'booking' as booking_url %}
-{% url 'contact-urls' as contact-urls_url %}
+{% url 'contact' as contact_url %}
 {% url 'member' as member_url %}
 
 <!DOCTYPE html>
@@ -19,9 +19,19 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div>
-            <a href="{% url 'homepage' %}"><span>Soul Base</span></a>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="{% url 'homepage' %}"><span>Soul Base</span></a>
+            </div>
+            <div class="navbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}"
+                            href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
