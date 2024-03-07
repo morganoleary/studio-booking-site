@@ -56,6 +56,8 @@ Deploy on Heroku:
 ### Help with settings.py:
 - Student support on Slack was very helpful setting up database configurations in the settings.py file.
 - [Creating a Database](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/ed8c75412c784bbba17988f7efbe037b/?child=first) content in the "I Think Therefore I Blog" walkthrough was utilized to create the database. 
+- [Setting up the base template](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/c592ed45498e440587b764e29891b2fc/?child=first)
+
 ### Help with Django:
 - [Django Documentation](https://docs.djangoproject.com/en/5.0/)
 
@@ -68,7 +70,7 @@ Figma = Wireframes
 Django = Framework
 HTML = mark up
 CSS = styling
-Bootstrap = styling
+[Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/download/) = styling
 Python
 JavaScript
 VS Code = IDE (Integrated Development Environment)

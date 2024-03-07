@@ -1,0 +1,42 @@
+{% load static %}
+
+{% url 'homepage' as homepage_url %}
+{% url 'booking' as booking_url %}
+{% url 'contact-urls' as contact-urls_url %}
+{% url 'member' as member_url %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul Base | at Studio IV</title>
+    <!-- Google Fonts CSS -->
+    <!-- Font Awesome CSS -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div>
+            <a href="{% url 'homepage' %}"><span>Soul Base</span></a>
+        </div>
+    </nav>
+
+    <main>
+
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+
+    </main>
+
+    <!-- Footer -->
+    <footer>Social Media links</footer>
+
+    <!-- Bootstrap JS-->
+    <script></script>
+</body>
+</html>
