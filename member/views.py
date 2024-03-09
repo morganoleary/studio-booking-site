@@ -3,4 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Member Profile Page")
+    return render(
+        request,
+        "member/member_profile.html",
+    )
