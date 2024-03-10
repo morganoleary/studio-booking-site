@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
-from member.models import Member
+from member.models import UserProfile
 
 # Create your models here.
 class ClassDetails(models.Model):
@@ -29,7 +29,7 @@ class ClassDetails(models.Model):
 
 class Booking(models.Model):
     booking_id = models.AutoField(primary_key=True)
-    member = models.ForeignKey(Member, on_delete=models.CASCADE)
+    member = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     booked_class = models.ForeignKey(ClassDetails, on_delete=models.CASCADE)
     class_date = models.DateField()
     class_time = models.TimeField()
