@@ -1,37 +1,20 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-12">
-            <h2 class="text-center">Contact Us</h2>
+            <h1 class="text-center">Contact Us</h1>
             <h4 class="text-center">We know you may have questions</h4>
             <h4 class="text-center">Just ask!</h4>
             <!-- Contact Us form-->
             <form method="post">
                 {% csrf_token %}
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" autocomplete="name" class="form-control" value="{{ contact_form.name.value }}">
-                </div>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone" autocomplete="tel" class="form-control" value="{{ contact_form.phone.value }}">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" autocomplete="email" class="form-control" value="{{ contact_form.email.value }}">
-                </div>
-                <div class="form-group">
-                    <label for="{{ contact_form.class_interested.id_for_label }}">Class Interested:</label>
-                    {{ contact_form.class_interested }}
-                </div>                
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" class="form-control">{{ contact_form.message.value }}</textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                {{ contact_form|crispy }}
+                
+                <button type="submit" class="btn btn-secondary">Submit</button>
             </form>
         </div>
     </div>

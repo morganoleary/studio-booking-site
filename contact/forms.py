@@ -6,7 +6,7 @@ class ContactForm(forms.ModelForm):
         model = ContactRequest
         fields = ('name', 'phone', 'email', 'message', 'class_interested')
         
-    # Help from: https://docs.djangoproject.com/en/5.0/ref/forms/widgets/
+    # # Help from: https://docs.djangoproject.com/en/5.0/ref/forms/widgets/
     def __init__(self, *args, **kwargs):
         super(ContactForm, self).__init__(*args, **kwargs)
-        self.fields['class_interested'].widget = forms.Select(choices=DropdownObject.objects.all())
+        self.fields['class_interested'].queryset = DropdownObject.objects.all()
