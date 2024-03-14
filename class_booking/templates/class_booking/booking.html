@@ -1,4 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% if user.is_authenticated %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <h1 class="text-center">Hi, {{ user.username }}</h1>
+        <p class="text-center">Ready to book your next class?</p>
+        <p class="text-center"></p>
+      </div>
+    </div>
+  </div>
+{% else %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <h1 class="text-center">{% trans "Sign In" %}</h1>
+        <p class="text-center">{% blocktrans %}To book a class with us, please log in. If you have not yet created an account, please <a href="{{ signup_url }}">sign up</a> to take your first class!{% endblocktrans %}</p>
+      </div>
+    </div>
+  </div>  
+{% endif %}
+
 {% endblock %}
