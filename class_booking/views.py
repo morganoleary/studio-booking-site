@@ -8,7 +8,7 @@ from .forms import ClassDetailForm, BookingForm
 def booking_page(request):
     return render(
         request, 
-        'class_booking/booking.html',
+        'class_booking/booking_form.html',
         )
 # use return booking_page(request) when needing to render booking.html file in other functions:
 
@@ -27,7 +27,7 @@ def class_booking_form(request):
 
     else:
         form = BookingForm()
-
+    
     return render(
         request,
         'class_booking/booking_form.html',

@@ -11,6 +11,7 @@ class ClassDetailForm(forms.ModelForm):
 
 
 class BookingForm(forms.ModelForm):
+    class Meta:
         model = Booking
         fields = ('booked_class', 'class_date', 'class_time')
 
