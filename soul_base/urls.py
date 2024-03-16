@@ -26,6 +26,6 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('booking/', include('class_booking.urls')),
     path('contact/', include('contact.urls')),
-    path('member/', member_views.index, name='member'),
+    path('member/', include('member.urls')),
     path('', main_views.index, name='homepage'),
 ]

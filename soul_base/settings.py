@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'class_booking',
     'contact',
     'main',
-    'member',
+    'member.apps.MemberConfig',
 ]
 
 SITE_ID = 1
