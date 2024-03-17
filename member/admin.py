@@ -1,23 +1,25 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+# from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 from .models import UserProfile
+from django.contrib.auth.admin import UserAdmin
 
 # Register your models here.
 admin.site.register(UserProfile)
 
-# Define an inline admin descriptor for User model
-# source: https://docs.djangoproject.com/en/dev/topics/auth/customizing/
+# Define UserProfileInline to include UserProfile fields in the User admin
+# source: https://docs.djangoproject.com/en/dev/topics/auth/customizing/ & assistance from Tutor Support
 class UserProfileInline(admin.StackedInline):
     model = UserProfile
-    fields = ('first_name', 'last_name', 'email')
     can_delete = False
-    verbose_name_plural = 'User Profile Details'
+    verbose_name_plural = 'User Profile'
 
-# Define a new User admin
-class UserAdmin(BaseUserAdmin):
-    inlines = [UserProfileInline]
-
-# Re-register UserAdmin
+# Unregister the default UserAdmin
 admin.site.unregister(User)
-admin.site.register(User, UserAdmin)
+
+# Extend the UserAdmin class to include UserProfileInline
+class CustomUserAdmin(UserAdmin):
+    inlines = (UserProfileInline,)
+
+# Register UserAdmin
+admin.site.register(User, CustomUserAdmin)
