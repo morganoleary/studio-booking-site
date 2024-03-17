@@ -11,7 +11,7 @@ def member_profile(request):
             form = UserProfileForm(request.POST, instance=user_profile)
             if form.is_valid():
                 form.save()
-                return redirect('member_profile')
+                return redirect('member')
         else:
             form = UserProfileForm(instance=user_profile)
         return render(request, "member/member_profile.html", {'user_profile': user_profile, 'form': form})

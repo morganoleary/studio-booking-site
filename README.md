@@ -64,6 +64,9 @@ Deploy on Heroku:
 - [Django Views URL Names](https://docs.allauth.org/en/latest/account/views.html#login) were found here, with the help of tutor support, to reference Django account files within custom templates.
 - Understanding the Django User Model was found [here](https://docs.djangoproject.com/en/5.0/ref/contrib/auth/#django.contrib.auth.models.User).
 - The use of Django signals, specifically the 'post_save' signal was implemented with the idea from [Medium.com](https://medium.com/@abdullafajal/automating-user-profile-creation-with-default-data-using-django-signals-50abef9ce529) and assistance from [Django Signal Documentation](https://docs.djangoproject.com/en/5.0/ref/signals/).
+- Understanding Django Forms was referenced using [this documentation](https://docs.djangoproject.com/en/5.0/topics/forms/) as well as from [creating model forms documentation](https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/). Implementing cleaned_data was learned through [Django documentation](https://docs.djangoproject.com/en/5.0/ref/forms/validation/#:~:text=The%20clean()%20method%20on,and%20that%20error%20is%20raised.).
+- Understanding the use of super() and __init __ came from [hubspot](https://blog.hubspot.com/website/python-super), [stack overflow](https://stackoverflow.com/questions/576169/understanding-python-super-with-init-methods) and [sentry](https://sentry.io/answers/super-and-init-in-python/#:~:text=__init__%20with%20Product,dependency%20injection%20and%20multiple%20inheritance.&text=This%20is%20equivalent%20to%20calling%20super()%20in%20Python%203.).
+- Customizing the User profile in the admin dashboard was learned from [Customizing authentication in Django](https://docs.djangoproject.com/en/dev/topics/auth/customizing/).
 
 ### Content
 Soul Base Pilates Studio - My sister's pilates studio based in Iowa, USA.
