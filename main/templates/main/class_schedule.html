@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <h1 class="text-center mb-4">Weekly Class Schedule</h1>
+        <div class="col-md-10 border rounded p-3">
+            <div class="col-md-12 mb-4">
+                <h4 class="text-center">Mondays:</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-center">4:30-5:00 / Mat Pilates for Stabilization</li>
+                    <li class="list-group-item text-center">5:15-6:00 / Mat Pilates Flow</li>
+                </ul>
+            </div>
+            <div class="col-md-12 mb-4">
+                <h4 class="text-center">Wednesdays:</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-center">4:30-5:00 / Mat Pilates for Stabilization</li>
+                    <li class="list-group-item text-center">5:15-6:00 / Mat Pilates Flow</li>
+                </ul>
+            </div>
+            <div class="col-md-12 mb-4">
+                <h4 class="text-center">Fridays:</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-center">2:00-2:30 / Mat Pilates for Stabilization</li>
+                    <li class="list-group-item text-center">2:45-3:45 / Strength & Stretch Movement Class</li>
+                </ul>
+            </div>    
+    </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <h1 class="text-center mb-4">Class Descriptions</h1>
+        <div class="col-md-10 border rounded p-3">
+            <div class="col-md-12 mb-4">
+                <div class="row text-left">
+                    <h4 class="font-weight-bold">Mat Pilates for Stabilization:</h4>
+                    <h6 class="text-right">30 minutes</h6>
+                    <p>Each individual exercise is done on the mat and can be modified as needed. We
+                        will introduce the basics of Pilates breath, alignment, and core principles. If you
+                        are looking for a foundation for stabilization and strength that will carry over into
+                        everyday life, this is the class for you. Can be paired with Mat Pilates Flow.</p>
+                </div>
+            </div>
+            <div class="col-md-12 mb-4">
+                <div class="row text-left">
+                    <h4 class="font-weight-bold">Mat Pilates Flow:</h4>
+                    <h6 class="text-right">45 minutes</h6>
+                    <p>We will combine more advanced mat Pilates with other body work exercises for
+                        increased strength, coordination, and flow. Breath and grounding will be
+                        important aspects of this class as we progress through each phase of movement.
+                        Can be paired with Mat Pilates for Stabilization.</p>
+                </div>
+            </div>
+            <div class="col-md-12 mb-4">
+                <div class="row text-left">
+                    <h4 class="font-weight-bold">Strength & Stretch Movement</h4>
+                    <h6 class="text-right">60 minutes</h6>
+                    <p>This class will combine a variety of elements: a core strength warm-up, barre
+                        exercises, full body engagement exercises done on and off the mat, and deep
+                        stretching.</p>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>
+
+{% endblock %}

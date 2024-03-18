@@ -44,10 +44,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == booking_url %}active{% endif %}" href="{% url 'booking' %}">Booking</a>
+                        <a class="nav-link {% if request.path == schedule_url %}active{% endif %}" href="{% url 'class_schedule' %}">Class Schedule</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == contact_url %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == booking_url %}active{% endif %}" href="{% url 'booking' %}">Booking</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
