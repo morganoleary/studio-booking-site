@@ -9,12 +9,17 @@ class ClassDetailForm(forms.ModelForm):
         model = ClassDetail
         fields = ('class_name', 'description', 'price', 'duration', 'capacity')
 
+    # # get fields from the ClassDetail model to add to the form
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields['class_name'] = forms.CharField(max_length=100)
+    #     self.fields['description'] = forms.TextField()
+    #     self.fields['price'] = forms.DecimalField(max_digits=8, decimal_places=2)
+    #     self.fields['duration'] = forms.CharField(max_length=50)
+    #     self.fields['capacity'] = forms.IntegerField()
+
 
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ('booked_class', 'class_date', 'class_time')
-
-        # AUTOFILL THE USER
-        # model = UserProfile
-        # fields = ('member')
