@@ -35,4 +35,4 @@ class Booking(models.Model):
     class_time = models.TimeField()
 
     def __str__(self):
-        return f"{self.member} booked {self.booked_class} on {self.class_date}. This class begins at {self.class_time}."
+        return f"{self.member} booked {self.booked_class} on {self.class_date} beginning at {self.class_time}."

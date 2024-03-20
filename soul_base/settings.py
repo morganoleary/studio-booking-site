@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_bootstrap5',
-    'bootstrap_datepicker_plus',
+    # 'bootstrap_datepicker_plus',
     'class_booking',
     'contact',
     'main',
@@ -163,22 +163,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# DJANGO DEBUG LOGGER
-LOGGING = {
-   'version': 1,
-   'disable_existing_loggers': False,
-   'handlers': {
-       'file': {
-           'level': 'DEBUG',
-           'class': 'logging.FileHandler',
-           'filename': 'debug.log',
-       },
-   },
-   'loggers': {
-       'django': {
-           'handlers': ['file'],
-           'level': 'DEBUG',
-           'propagate': True,
-       },
-   },
-}
