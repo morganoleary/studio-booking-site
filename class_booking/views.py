@@ -4,7 +4,6 @@ from .forms import BookingForm
 
 # Create your views here.
 
-
 def class_booking_form(request):
     if request.method == 'POST':
         form = BookingForm(data=request.POST)
@@ -12,10 +11,7 @@ def class_booking_form(request):
             booking = form.save(commit=False)
             booking.member = request.user.userprofile
             booking.save()
-            messages.add_message(
-                request,messages.SUCCESS,
-                'You have successfully booked a class!'
-            )
+            messages.success(request, "Class booked successfully!")
             return redirect('member')
 
     else:

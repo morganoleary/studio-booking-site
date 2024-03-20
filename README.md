@@ -13,6 +13,7 @@ This app will allow users to book classes for this pilates/dance studio.
 [Soul Base User Story Project](https://github.com/users/morganoleary/projects/4/views/1)
 
 ## Design:
+- The design was taken from the already created logo of Soul Base Pilates.
 
 ## Wireframes:
 [Figma wireframe](https://www.figma.com/file/XGDgyLpX0MTIs4UjGJEWSk/Studio-Booking-Site?type=design&node-id=0%3A1&mode=design&t=AFRhMGkel6QpeZO6-1)
@@ -24,13 +25,27 @@ This app will allow users to book classes for this pilates/dance studio.
 
 ## Future Features
 
+- In future implementations, the admin will have the ability to send class reminder emails to all members with upcoming bookings.
+- A gallery page will be implemented to provide the user with more understanding of the studio.
+- The location of the studio will be displayed with a Google map view on the site's home page.
+
 # Testing
 
 ## Validator Testing:
 
+- W3C CSS Validator:
+- W3C Markup Validation:
+
 ## Manual Testing:
 
-## Automated Testing:
+Testing the contact form:
+- This was tested by submitting a contact request. When attempting to submit the form without the *required fields, the user is unable to submit and receives a request to fill in the missing, required field.
+- The contact form works correctly for both logged in users as well as visitors who are not logged in.
+- The admin site is updated correctly with the required fields and optional fields, when completed. All contact request details are stored in the admin dashboard under Contact Requests in the Contact section.
+
+User login & logout:
+- When a user logs out, they are automatically redirected to the home page. This applies for both site users as well as superusers.
+- When a user logs into their previously created account, they are automatically redirected to the home page. From here the user can easily navigate the site to book a class, see their profile page or find out more about the studio from the navbar.
 
 ## Bugs/Unfixed Bugs:
 - Fixed: When creating my apps, I decided I needed to separate my models for member details from the class details and booking models in a separate app. I changed the name of my original 'book' app to 'member' as this already contained my Member and MemberLogin models that had been migrated to the database and deployed on Heroku. I followed the steps and successfully changed the name of the app by utilizing the [django-rename-app](https://github.com/odwyersoftware/django-rename-app?tab=readme-ov-file).
@@ -51,7 +66,21 @@ Deploy on Heroku:
 
 ## Fork Repository
 
+Forking a repository allows you to create a copy to GitHub, and any changes made will not affect the original repository:
+
+- Within GitHub, navigate to the repository page you are going to fork
+- Click "Fork" on the top right corner of the page
+- Wait for the copy to be created and you are then redirected to the forked repository
+
 ## Clone Repository
+
+Cloning a repository allows you to create a local copy of a repository on your machine:
+
+- Within GitHub, navigate to the repository you are wanting to clone
+- Click the green "<>Code" button
+- Within the "Local" tab, copy the HTTPS url
+- In your IDE, open Git Bash and type in 'git clone' followed by the pasted url just copied from GitHub. Ex: git clone https://example.com/repository/project
+- The clone has been created on your local machine
 
 # Credits
 - Student support on Slack was very helpful setting up database configurations in the settings.py file.
