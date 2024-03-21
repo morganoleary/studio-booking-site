@@ -4,13 +4,30 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-12">
-        <form method="post">
+  <div class="container justify-content-center">
+    <div class="row">
+      <div class="col-md-12 justify-content-center">
+        <div class="row justify-content-center">
+          <p class="border-bottom pb-3 font-weight-bold">To book a class, please choose a date & time fitting with our schedule:</p>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-10 border-bottom pb-3"><span class="font-weight-bold">Mat Pilates for Stabilization class availability:</span> Mondays @ 4:30pm, Wednesdays @ 4:30pm, Fridays @ 2:00pm</div>
+          <div class="col-md-10 border-bottom pb-3 pt-3"><span class="font-weight-bold">Mat Pilates Flow class availability:</span> Mondays @ 5:15pm,
+            Wednesdays @ 5:15pm</div>
+          <div class="col-md-10 border-bottom pb-3 pt-3"><span class="font-weight-bold">Strength & Stretch Movement Class class availability:</span> Fridays @ 2:45pm</div>
+        </div>
+        <form method="post" class="pt-4">
           {% csrf_token %}
-          {{ class_booking_form | crispy }}
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              {{ class_booking_form | crispy }}
+            </div>
+          </div>          
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>        
         </form>
       </div>
     </div>

@@ -28,6 +28,7 @@ This app will allow users to book classes for this pilates/dance studio.
 - In future implementations, the admin will have the ability to send class reminder emails to all members with upcoming bookings.
 - A gallery page will be implemented to provide the user with more understanding of the studio.
 - The location of the studio will be displayed with a Google map view on the site's home page.
+- As a future enhancement, as the studio begins to grow, class bookings will be limited by the capacity of members each class is able to hold.
 
 # Testing
 
