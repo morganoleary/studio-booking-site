@@ -1,6 +1,5 @@
 
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -21,28 +20,25 @@
             {% endfor %}
         </div>
         <div class="col-md-6">
-            <h4 class="text-center">Personal Details</h4>
-            <!-- Edit modal button -->
-            <div class="container">
-                <div class="col-md-6">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProfileModal">
-                        Edit Profile
-                    </button>        
-                </div>
-            </div>
-            <div class="container">
-                <div class="col-md-6">
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form.first_name|as_crispy_field }}
-                        {{ form.last_name|as_crispy_field }}
-                        {{ form.email|as_crispy_field }}
-                        {{ form.phone|as_crispy_field }}
-                        <button type="submit" class="btn btn-primary">Save Changes</button>
-                    </form>    
-                </div>
-            </div>    
-        </div>
+          <h4 class="text-center">Personal Details</h4>
+          <!-- Display user's details -->
+          <div class="container">
+              <div class="col-md-6">
+                  <p><strong>First Name:</strong> {{ user_profile.member.first_name }}</p>
+                  <p><strong>Last Name:</strong> {{ user_profile.member.last_name }}</p>
+                  <p><strong>Email:</strong> {{ user_profile.member.email }}</p>
+                  <p><strong>Phone:</strong> {{ user_profile.phone }}</p>
+              </div>
+          </div>
+          <!-- Edit modal button -->
+          <div class="container">
+              <div class="col-md-6">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProfileModal">
+                      Edit Profile
+                  </button>
+              </div>
+          </div>
+      </div>
     </div>
 </div>
 
@@ -58,18 +54,8 @@
           </button>
         </div>
         <div class="modal-body">
-          <!-- Edit Profile Form -->
-          <form method="post">
-            {% csrf_token %}
-            {{ form.first_name|as_crispy_field }}
-            {{ form.last_name|as_crispy_field }}
-            {{ form.email|as_crispy_field }}
-            {{ form.phone|as_crispy_field }}
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save Changes</button>
-            </div>
-          </form>
+          <!-- Include the edit form -->
+          {% include 'member/edit_personal_details.html' %}
         </div>
       </div>
     </div>

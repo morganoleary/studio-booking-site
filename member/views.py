@@ -21,10 +21,9 @@ def member_profile(request):
         
         context = {
             'booked_classes':booked_classes,
-            'user_profile': user_profile, 
+            'user_profile': user_profile,
             'form': form
                     }
-
-        return render(request, "member/member_profile.html",context )
+        return render(request, "member/member_profile.html", context)
     else:
         return redirect('login')
