@@ -28,12 +28,14 @@ This app will allow users to book classes for this pilates/dance studio.
 - In future implementations, the admin will have the ability to send class reminder emails to all members with upcoming bookings.
 - A gallery page will be implemented to provide the user with more understanding of the studio.
 - The location of the studio will be displayed with a Google map view on the site's home page.
-- As a future enhancement, as the studio begins to grow, class bookings will be limited by the capacity of members each class is able to hold.
+- As a future enhancement, and as the studio begins to grow, class bookings will be limited by the capacity of members each class is able to hold.
+- In future enhancements, I plan to implement a confirmation step to confirm a class booking before the user can fully cancel a class.
 
 # Testing
 
 ## Validator Testing:
 
+- JSHint:
 - W3C CSS Validator:
 - W3C Markup Validation:
 
@@ -51,6 +53,7 @@ User login & logout:
 ## Bugs/Unfixed Bugs:
 - Fixed: When creating my apps, I decided I needed to separate my models for member details from the class details and booking models in a separate app. I changed the name of my original 'book' app to 'member' as this already contained my Member and MemberLogin models that had been migrated to the database and deployed on Heroku. I followed the steps and successfully changed the name of the app by utilizing the [django-rename-app](https://github.com/odwyersoftware/django-rename-app?tab=readme-ov-file).
 - Fixed: When implementing Django signals into the "member" app when trying to create a user profile for each user that signs up, I received the following error: django.core.exceptions.ImproperlyConfigured: Application labels aren't unique, duplicates: member . After researching, I was able to fix the problem my removing the 'member' in INSTALLED_APPS of the Settings file. This was found using [Stack Overflow](https://stackoverflow.com/questions/24319558/how-to-resolve-django-core-exceptions-improperlyconfigured-application-labels).
+- I ran into a bug when trying to implement the class cancellation function. Daisy helped debug and I now understand that Django provides built-in primary keys, where I had overidden the automatic PK with booking_id. Once I implemented the correct key into the code, it works well.
 
 # Deployment
 
@@ -88,6 +91,7 @@ Cloning a repository allows you to create a local copy of a repository on your m
 - [Creating a Database](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/ed8c75412c784bbba17988f7efbe037b/?child=first) content in the "I Think Therefore I Blog" walkthrough was utilized to create the database. 
 - From the 'I think therefore I blog' walkthrough project, [Django Walkthrough Project / Setting up the base template](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/c592ed45498e440587b764e29891b2fc/?child=first) was helpful when creating the base template.
 - [Django Documentation](https://docs.djangoproject.com/en/5.0/)
+
 - From the 'I think therefore I blog' walkthrough project, [Deployment with static files](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/c592ed45498e440587b764e29891b2fc/?child=first) was utilized to ensure successful deployment after creating static files.
 - From the 'I think therefore I blog' walkthrough project, [Django AllAuth Authentication](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/8354ed2193944d4ea9aa167849113da7/) and [Django Documentation](https://docs.allauth.org/en/latest/installation/quickstart.html) were used to install and wire up Django AllAuth. 
 - [Django debug log](https://docs.djangoproject.com/en/5.0/topics/logging/#id5) was provided by tutor support to assist with finding specific issues in code.
@@ -99,6 +103,7 @@ Cloning a repository allows you to create a local copy of a repository on your m
 - Customizing the User profile in the admin dashboard was learned from [Customizing authentication in Django](https://docs.djangoproject.com/en/dev/topics/auth/customizing/).
 - Implementing Bootstrap's pop-up modal came from this [Bootstrap Components Documentation](https://getbootstrap.com/docs/4.6/components/modal/).
 - The ideaology of implementing the booking form's DateTimePicker came from [Django-Bootstrap-Datepicker-Plus](https://django-bootstrap-datepicker-plus.readthedocs.io/en/latest/customization.html). This wasn't rendering properly, so with the help of [this example](https://github.com/GJSayers/hobo-hatch-b2b/blob/main/checkout/forms.py) from tutor support, along with [letscodemore.com](https://www.letscodemore.com/blog/how-to-add-date-input-widget-in-django-forms/), I was able to implement DateInput & TimeInput.
+- Figuring out how to cancel a booked class was referenced from the 'I think therefore I blog' walkthrough video for [Editing and deleting records](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/24613de4bafc4032882cc1b8799bd4f0/). I also received great feedback from Daisy on Slack to get it working properly.
 
 ### Content
 Soul Base Pilates Studio - My sister's pilates studio based in Iowa, USA.

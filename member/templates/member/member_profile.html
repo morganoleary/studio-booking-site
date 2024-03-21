@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 
 {% block content %}
@@ -16,7 +15,12 @@
         <div class="col-md-6">
             <h4 class="text-center">Classes Booked</h4>
             {% for booking in booked_classes %}
-              <li>{{ booking.booked_class }} - {{ booking.class_date }} - {{ booking.class_time }}</li>
+              <li>{{ booking.booked_class }} - {{ booking.class_date }} - {{ booking.class_time }} 
+                <form action="{% url 'cancel_booking' booking.booking_id %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-danger">Cancel Class</button>
+                </form>
+              </li>
             {% endfor %}
         </div>
         <div class="col-md-6">
