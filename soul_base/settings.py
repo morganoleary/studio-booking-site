@@ -27,7 +27,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False) == 'YES'
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
@@ -112,9 +112,8 @@ else:
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), conn_max_age=600)
     }
 
-# FIX BEFORE SUBMITTING!!!!!!!!!!!!!!!!!! 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.herokuapp.com"
+    "https://soul-base-studio-booking-app-e81b5c50e6c9.herokuapp.com/booking/"
 ]
 
 # Password validation
@@ -160,23 +159,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# DJANGO DEBUG LOGGER
-LOGGING = {
-'version': 1,
-'disable_existing_loggers': False,
-'handlers': {
-'file': {
-'level': 'DEBUG',
-'class': 'logging.FileHandler',
-'filename': 'debug.log',
-},
-},
-'loggers': {
-'django': {
-'handlers': ['file'],
-'level': 'DEBUG',
-'propagate': True,
-},
-},
-}
