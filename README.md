@@ -1,13 +1,26 @@
 # Soul Base Studio Booking App
 
-This app will allow users to book classes for this pilates/dance studio.
-
+Welcome to Soul Base Pilates Studio! This app will allow users to book classes for this pilates/dance studio. The classes are run by my sister, which is where the inspiration came from for this app. This project was created using Django for my very first time. The site remains simple, yet functional and contains great user experience with easy navigation. Enjoy! 
+![Am I Responsive view of app](static/images/readme/am-i-responsive.png)
 
 # User Experience (UX)
 
 ## User Stories:
 **Planning of user stories completed in Google sheets:
 [Google sheet](https://docs.google.com/spreadsheets/d/13gqPIhIq3JW8bj4yZG445GtfKLTm_jc08hKC8qQwt5g/edit?usp=sharing)
+
+- As a first time user I can navigate the site so that I can learn about the business.
+- As a first time user I can click on the business' social media links so that I can further research the business and connect.
+- As a first time user I want to be able to register for an account so that I can access the studio booking platform.
+- As a first time user I can send queries to the business so that I can find out more about them.
+- As a user I can book a class so that I can attend a class that suits my schedule.
+- As a user I can receive confirmation of a booking so that I know it was successfully booked.
+- As a user I can see the weekly class schedule so that I can find a class that suits my schedule.
+- As a returning visitor I can login to my account so that I can see my bookings.
+- As a returning visitor I can login to my account so that I can cancel a booked class.
+- As a returning visitor I can login to my account so that I can update my personal details.
+- As a site owner I can receive queries from users so that I can respond to potential clients.
+- As a site owner I can see class bookings so that I can plan accordingly for the scheduled classes.
 
 **User Stories within Projects on GitHub Repository:
 [Soul Base User Story Project](https://github.com/users/morganoleary/projects/4/views/1)
@@ -17,13 +30,52 @@ This app will allow users to book classes for this pilates/dance studio.
 
 ## Wireframes:
 [Figma wireframe](https://www.figma.com/file/XGDgyLpX0MTIs4UjGJEWSk/Studio-Booking-Site?type=design&node-id=0%3A1&mode=design&t=AFRhMGkel6QpeZO6-1)
+![Wireframes](static/images/readme/wireframes.png)
 
-## ERD:
+## ERD Diagram:
 [LucidChart ERD](https://lucid.app/lucidchart/e9b3c27f-07d4-4026-b261-0147bd63587b/edit?viewport_loc=-990%2C-136%2C2368%2C1186%2C0_0&invitationId=inv_e64b0370-8313-4ba3-ae26-527c2fb98352)
+![ERD Diagram](static/images/readme/erd.png)
 
 # Existing Features
 
+- Dynamic navbar for all device sizes, clear for users to see and easy to navigate:
+![Navbar](static/images/readme/navbar.png)
+![Navbar small screens](static/images/readme/navbar-small.png)
 
+- The home page displays clear information about the studio along with an image of the class space:
+![About page](static/images/readme/about.png)
+![Studio image](static/images/readme/studio-pic-min.png)
+
+- The class schedule page displays the classes available and their specific times as well as the class descriptions so the user knows what to expect from a class:
+![Class schedule](static/images/readme/class-schedule.png)
+![Class descriptions](static/images/readme/class-descriptions.png)
+
+- The contact page provides visitors and/or users of the site to submit their information to make a query to the business. The form also allows the user to choose a specific class they are querying, if desired:
+![Contact form](static/images/readme/contact1.png)
+![Contact class dropdown](static/images/readme/contact2.png)
+
+- If a site visitor attempts to book a class from clicking on 'Booking' in the navbar, it will request that they either register a new account or sign in with an existing account:
+![Booking error](static/images/readme/booking-not-logged-in.png)
+![Register](static/images/readme/register.png)
+![Sign in](static/images/readme/sign-in.png)
+
+- When a user is logged in, the navbar options change to allow bookings and view their member profile page:
+![Logged in navbar](static/images/readme/user-logged-in-navbar.png)
+
+- When logged in the Booking page allows the user to choose a specific class date & time to book a class:
+![Booking page](static/images/readme/booking-page.png)
+
+- When logged in the user can visit the member profile page to view and cancel their booked classes as well as view and update their personal details:
+![Member profile](static/images/readme/member-profile.png)
+
+- When logged in the user has to option to logout:
+![Logout](static/images/readme/logout.png)
+
+- The footer is consistent throughout the entire site and allows the user to visit the studio's social media platforms. There are currently no social media sites set up or connected for this business.
+![Footer](static/images/readme/footer.png)
+
+- The admin site is fully functional for the site owner to navigate through contact requests, member/user details, and class & booking details:
+![Admin dashboard](static/images/readme/admin.png)
 
 ## Future Features
 
@@ -45,9 +97,23 @@ This app will allow users to book classes for this pilates/dance studio.
 
 ## Validator Testing:
 
+- CI Python Linter: Each python file for all apps were run through the python linter. There were a few lines exceeding the line limit and those are documented in my 'Bugs'. Otherwise, everything passed with no errors. 
+![CI Python Linter](static/images/readme/ci-python-linter.png)
+
 - JSHint: No JavaScript was needed for the implementation of the current features in this project.
-- W3C CSS Validator:
-- W3C Markup Validation:
+
+- W3C CSS Validator: No issues were found in the CSS validator.
+![W3C CSS Validator](static/images/readme/w3c-css.png)
+
+- W3C Markup Validation: 
+(Unfixed Bug) After fixing the issues the W3C Markup Validator was showing, I re-deployed and ran into the same errors. The warning is how I ensured there is no horizontal scrolling on smaller devices and it works perfectly. I don't have any `li's in my .html documents that are direct children of divs. After running out of time to submit, I was not able to solve these errors.
+![W3C Markup](static/images/readme/w3c-markup.png)
+No major issues were found when testing the source code of the authorized user pages.
+![HTML Authorized User pages](static/images/readme/html-authorised-pages.png)
+
+- Lighthouse: 
+(Unfixed Bug) Unfortunately, I have errors in the Lighthouse report that I ran out of time to look into to see why the errors occurred. I am thinking this might have to do with Django as I have never run into issues with a Lighthouse report in past projects.
+![Lighthouse Report](static/images/readme/lighthouse.png)
 
 ## Manual Testing:
 
@@ -75,6 +141,11 @@ Testing functionality of booking & canceling a class:
 
 Testing the layout & spacing:
 - The site looks well on all device sizes thanks to Bootstrap. This was tested using the browser's Dev Tools.
+
+Testing navbar & footer links:
+- The menu navbar's layout works well on all screen sizes and shrinks to a functional, collapsible menu dropdown on small devices.
+- All links in the navbar direct the user to the correct page.
+- The footer's social media links all work and open the respected social media site in a new tab for better user experience.
 
 Testing the admin dashboard:
 - The superuser is able to view all models with the correct details in each. 
@@ -141,7 +212,7 @@ Cloning a repository allows you to create a local copy of a repository on your m
 
 - From the 'I think therefore I blog' walkthrough project, [Django AllAuth Authentication](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/8354ed2193944d4ea9aa167849113da7/) and [Django Documentation](https://docs.allauth.org/en/latest/installation/quickstart.html) were used to install and wire up Django AllAuth. 
 
-- [Django debug log](https://docs.djangoproject.com/en/5.0/topics/logging/#id5) was provided by tutor support to assist with finding specific issues in code.
+- [Django debug log](https://docs.djangoproject.com/en/5.0/topics/logging/#id5) was provided by tutor support to assist with finding specific issues in code. This was removed for deployment.
 
 - [Django Views URL Names](https://docs.allauth.org/en/latest/account/views.html#login) were found here, with the help of tutor support, to reference Django account files within custom templates.
 
@@ -170,20 +241,21 @@ Cloning a repository allows you to create a local copy of a repository on your m
 - The content for this site came directly from Soul Base Pilates Studio. This is my sister's pilates studio based in Iowa, USA.
 
 ### Technologies Used
-LucidChart = ERD
-Figma = Wireframes
-Django = Framework
-HTML = mark up language
-CSS = styling
-[Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/download/) = styling
-Python
-VS Code = IDE
-Heroku = Deployment
-GitHub = Used to store the project
-Git = version control
-[PostgresSQL from Code Institute](https://dbs.ci-dbs.net/) = Production database 
-[TinyPNG](https://tinypng.com/) used to compress images
-[Favicon generator](https://gauger.io/fonticon/) to create the favicon
+- LucidChart = ERD
+- Figma = Wireframes
+- Django = Framework
+- HTML = mark up language
+- CSS = styling
+- [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/download/) = styling
+- Python = functionality
+- VS Code = IDE
+- Heroku = Deployment
+- GitHub = Used to store the project
+- Git = version control
+- [PostgresSQL from Code Institute](https://dbs.ci-dbs.net/) = Production database 
+- [TinyPNG](https://tinypng.com/) used to compress images
+- [Favicon generator](https://gauger.io/fonticon/) to create the favicon
+- [Am I Responsive](https://ui.dev/amiresponsive) = multiple screen size views
 
 ### Media & Layout
 
