@@ -23,37 +23,79 @@ This app will allow users to book classes for this pilates/dance studio.
 
 # Existing Features
 
+
+
 ## Future Features
 
+- In future I plan to implement a 'table of contents' for README files of this length.
+
 - In future implementations, the admin will have the ability to send class reminder emails to all members with upcoming bookings.
+
 - A gallery page will be implemented to provide the user with more understanding of the studio.
+
 - The location of the studio will be displayed with a Google map view on the site's home page.
+
 - As a future enhancement, and as the studio begins to grow, class bookings will be limited by the capacity of members each class is able to hold.
+
 - In future enhancements, I plan to implement a confirmation step to confirm a class booking before the user can fully cancel a class.
+
+- In future implementations, the user will have the option to delete their account/profile. Currently, the user must contact the studio to cancel their account.
 
 # Testing
 
 ## Validator Testing:
 
-- JSHint:
+- JSHint: No JavaScript was needed for the implementation of the current features in this project.
 - W3C CSS Validator:
 - W3C Markup Validation:
 
 ## Manual Testing:
+
+Testing the Home page & Class Schedule page:
+- Both these pages are purely made up of HTML & CSS and work well on all device sizes. I found no issues when adjusting the width of the screen size in the browser's Dev Tools.
 
 Testing the contact form:
 - This was tested by submitting a contact request. When attempting to submit the form without the *required fields, the user is unable to submit and receives a request to fill in the missing, required field.
 - The contact form works correctly for both logged in users as well as visitors who are not logged in.
 - The admin site is updated correctly with the required fields and optional fields, when completed. All contact request details are stored in the admin dashboard under Contact Requests in the Contact section.
 
-User login & logout:
+Testing user login & logout:
 - When a user logs out, they are automatically redirected to the home page. This applies for both site users as well as superusers.
 - When a user logs into their previously created account, they are automatically redirected to the home page. From here the user can easily navigate the site to book a class, see their profile page or find out more about the studio from the navbar.
+- I found no way to book a class without being a logged in user.
+- The contact form works whether the user is logged in or not.
+
+Testing functionality of booking & canceling a class:
+- I tested trying to book a class when not logged in as a registered user and it correcly brings you to the option to login or register a new account.
+- As a logged in user, the booking is successful when a correct class day and time are chosen.
+- Upen successful bookings, a success message appears.
+- If the class date or time is incorrect, an error message is shown to the user.
+- All bookings and relevant details work correctly when viewing bookings on the admin dashboard.
+- CRUD functionality has been implemented and works on all aspects of the users side. The user can successfully cancel a class booking that has already boon booked and appears on the member's profile page. The cancelations are immediately reflected on the admin dashboard and I could not find a way to break this.
+
+Testing the layout & spacing:
+- The site looks well on all device sizes thanks to Bootstrap. This was tested using the browser's Dev Tools.
+
+Testing the admin dashboard:
+- The superuser is able to view all models with the correct details in each. 
+- The logged in admin is able to create, view and delete, bookings, users & user profiles, contact requests and class details.
+- I was unable to access the admin dashboard without proper superuser login credentials.
 
 ## Bugs/Unfixed Bugs:
 - Fixed: When creating my apps, I decided I needed to separate my models for member details from the class details and booking models in a separate app. I changed the name of my original 'book' app to 'member' as this already contained my Member and MemberLogin models that had been migrated to the database and deployed on Heroku. I followed the steps and successfully changed the name of the app by utilizing the [django-rename-app](https://github.com/odwyersoftware/django-rename-app?tab=readme-ov-file).
+
 - Fixed: When implementing Django signals into the "member" app when trying to create a user profile for each user that signs up, I received the following error: django.core.exceptions.ImproperlyConfigured: Application labels aren't unique, duplicates: member . After researching, I was able to fix the problem my removing the 'member' in INSTALLED_APPS of the Settings file. This was found using [Stack Overflow](https://stackoverflow.com/questions/24319558/how-to-resolve-django-core-exceptions-improperlyconfigured-application-labels).
-- I ran into a bug when trying to implement the class cancellation function. Daisy helped debug and I now understand that Django provides built-in primary keys, where I had overidden the automatic PK with booking_id. Once I implemented the correct key into the code, it works well.
+
+- Fixed: I ran into a bug when trying to implement the class cancellation function. Daisy helped debug and I now understand that Django provides built-in primary keys, where I had overidden the automatic PK with booking_id. Once I implemented the correct key into the code, it works well.
+
+- Unfixed: When testing my .py files with the CI Python Linter, this line was proven to be too long. However, even after adding parentheses and entering to the next line and trying multiple options, I was unable to fix the result 'continuation line with same indent as next logical line': 
+    if selected_datetime.strftime('%A %H:%M') not in available_options[booked_class.class_name]:   
+
+    The same issue occured with this path, however I was unable to fix and feared ruining my url path:
+        path('cancel/booking/<int:booking_id>/', cancel_booking, name='cancel_booking'),
+
+    Same issue with this line:
+        return f"{self.member} booked {self.booked_class} on {self.class_date} beginning at {self.class_time}."
 
 # Deployment
 
@@ -88,43 +130,67 @@ Cloning a repository allows you to create a local copy of a repository on your m
 
 # Credits
 - Student support on Slack was very helpful setting up database configurations in the settings.py file.
+
 - [Creating a Database](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/ed8c75412c784bbba17988f7efbe037b/?child=first) content in the "I Think Therefore I Blog" walkthrough was utilized to create the database. 
+
 - From the 'I think therefore I blog' walkthrough project, [Django Walkthrough Project / Setting up the base template](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/c592ed45498e440587b764e29891b2fc/?child=first) was helpful when creating the base template.
+
 - [Django Documentation](https://docs.djangoproject.com/en/5.0/)
 
 - From the 'I think therefore I blog' walkthrough project, [Deployment with static files](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/c592ed45498e440587b764e29891b2fc/?child=first) was utilized to ensure successful deployment after creating static files.
+
 - From the 'I think therefore I blog' walkthrough project, [Django AllAuth Authentication](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/8354ed2193944d4ea9aa167849113da7/) and [Django Documentation](https://docs.allauth.org/en/latest/installation/quickstart.html) were used to install and wire up Django AllAuth. 
+
 - [Django debug log](https://docs.djangoproject.com/en/5.0/topics/logging/#id5) was provided by tutor support to assist with finding specific issues in code.
+
 - [Django Views URL Names](https://docs.allauth.org/en/latest/account/views.html#login) were found here, with the help of tutor support, to reference Django account files within custom templates.
+
 - Understanding the Django User Model was found [here](https://docs.djangoproject.com/en/5.0/ref/contrib/auth/#django.contrib.auth.models.User).
+
 - The use of Django signals, specifically the 'post_save' signal was implemented with the idea from [Medium.com](https://medium.com/@abdullafajal/automating-user-profile-creation-with-default-data-using-django-signals-50abef9ce529) and assistance from [Django Signal Documentation](https://docs.djangoproject.com/en/5.0/ref/signals/).
+
 - Understanding Django Forms was referenced using [this documentation](https://docs.djangoproject.com/en/5.0/topics/forms/) as well as from [creating model forms documentation](https://docs.djangoproject.com/en/5.0/topics/forms/modelforms/). Implementing cleaned_data was learned through [Django documentation](https://docs.djangoproject.com/en/5.0/ref/forms/validation/#:~:text=The%20clean()%20method%20on,and%20that%20error%20is%20raised.).
+
 - Understanding the use of super() and __init __ came from [hubspot](https://blog.hubspot.com/website/python-super), [stack overflow](https://stackoverflow.com/questions/576169/understanding-python-super-with-init-methods) and [sentry](https://sentry.io/answers/super-and-init-in-python/#:~:text=__init__%20with%20Product,dependency%20injection%20and%20multiple%20inheritance.&text=This%20is%20equivalent%20to%20calling%20super()%20in%20Python%203.).
+
 - Customizing the User profile in the admin dashboard was learned from [Customizing authentication in Django](https://docs.djangoproject.com/en/dev/topics/auth/customizing/).
+
 - Implementing Bootstrap's pop-up modal came from this [Bootstrap Components Documentation](https://getbootstrap.com/docs/4.6/components/modal/).
+
 - The ideaology of implementing the booking form's DateTimePicker came from [Django-Bootstrap-Datepicker-Plus](https://django-bootstrap-datepicker-plus.readthedocs.io/en/latest/customization.html). This wasn't rendering properly, so with the help of [this example](https://github.com/GJSayers/hobo-hatch-b2b/blob/main/checkout/forms.py) from tutor support, along with [letscodemore.com](https://www.letscodemore.com/blog/how-to-add-date-input-widget-in-django-forms/), I was able to implement DateInput & TimeInput.
+
 - Figuring out how to cancel a booked class was referenced from the 'I think therefore I blog' walkthrough video for [Editing and deleting records](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSD101_WTS+2023_Q3/courseware/56a2da0940b4411d8a38c2b093a22c60/24613de4bafc4032882cc1b8799bd4f0/). I also received great feedback from Daisy on Slack to get it working properly.
 
+- Assistance with defining UserProfileInline to include UserProfile fields in the User admin
+[source](https://docs.djangoproject.com/en/dev/topics/auth/customizing/) & assistance from Tutor Support.
+
+- Implementing the signals.py file was sourced from [here](https://medium.com/@abdullafajal/automating-user-profile-creation-with-default-data-using-django-signals-50abef9ce529) in order to create a user profile for each new user.
+
 ### Content
-Soul Base Pilates Studio - My sister's pilates studio based in Iowa, USA.
+- The content for this site came directly from Soul Base Pilates Studio. This is my sister's pilates studio based in Iowa, USA.
 
 ### Technologies Used
 LucidChart = ERD
 Figma = Wireframes
 Django = Framework
-HTML = mark up
+HTML = mark up language
 CSS = styling
 [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/download/) = styling
 Python
-JavaScript
-VS Code = IDE (Integrated Development Environment)
+VS Code = IDE
 Heroku = Deployment
-GitHub = store project
+GitHub = Used to store the project
 Git = version control
 [PostgresSQL from Code Institute](https://dbs.ci-dbs.net/) = Production database 
 [TinyPNG](https://tinypng.com/) used to compress images
-[Favicon generator](https://gauger.io/fonticon/)
+[Favicon generator](https://gauger.io/fonticon/) to create the favicon
 
 ### Media & Layout
 
+- The media for this project was provided directly by Soul Base Pilates Studio.
+
 ## Acknowledgements
+
+- I would like to thank my mentor, Narender, for his great support and advice throughout this project. 
+- I would like to thank tutor support and the community on Slack for their assistance in understanding the different aspects of this project. 
+- I would also like to thank my sister, Sydney, for providing the material for the project from her new business, Soul Base Pilates Studio!

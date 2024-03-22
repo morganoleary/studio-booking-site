@@ -6,14 +6,17 @@ from .models import Booking
 
 # Create your views here.
 
+
 def class_booking_form(request):
-    """View to handle class booking form submission
-
-    Args:
-        request (_type_): _description_
-
-    Returns:
-        _type_: _description_
+    """
+    View to handle class booking form submission.
+    Displays an individual instance of :model: `Booking`
+    **Context**
+    ``class_booking_form``
+        An instance of :form: `class_booking.BookingForm`
+    **Template**
+    :template: `member/member_profile.html`
+    :template: `class_booking/booking_form.html`
     """
     if request.method == 'POST':
         form = BookingForm(data=request.POST)
@@ -26,11 +29,10 @@ def class_booking_form(request):
 
     else:
         form = BookingForm()
-    
+
     return render(
-        request, 
-        'class_booking/booking_form.html',
-            {
+        request,
+        'class_booking/booking_form.html', {
             "class_booking_form": form
             }
         )
@@ -38,7 +40,10 @@ def class_booking_form(request):
 
 def cancel_booking(request, booking_id):
     """
-    View to cancel a booked class
+    View to cancel a booked class.
+    Displays an individual instance of :model: `Booking`
+    **Template**
+    :template: `member/member_profile.html`
     """
     booking = get_object_or_404(Booking, booking_id=booking_id)
 
@@ -47,5 +52,7 @@ def cancel_booking(request, booking_id):
         messages.success(request, "This booking has been canceled.")
         return HttpResponseRedirect(reverse('member'))
     else:
-        messages.success(request, "Sorry you do not have permission to cancel this booking.")
+        messages.success(
+            request,
+            "Sorry you do not have permission to cancel this booking.")
         return redirect('member')

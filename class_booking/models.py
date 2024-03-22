@@ -3,7 +3,12 @@ from django.core.validators import MinValueValidator
 from member.models import UserProfile
 
 # Create your models here.
+
+
 class ClassDetail(models.Model):
+    """
+    Model representing class details. :model: `ClassDetail`
+    """
     DURATION_CHOICES = [
         ('Mat Pilates for Stabilization', '30 minutes'),
         ('Mat Pilates Flow', '45 minutes'),
@@ -11,9 +16,11 @@ class ClassDetail(models.Model):
     ]
 
     CLASS_CHOICES = [
-        ('Mat Pilates for Stabilization', 'Mat Pilates for Stabilization'),
+        ('Mat Pilates for Stabilization',
+         'Mat Pilates for Stabilization'),
         ('Mat Pilates Flow', 'Mat Pilates Flow'),
-        ('Strength and Stretch Movement Class', 'Strength and Stretch Movement Class'),
+        ('Strength and Stretch Movement Class',
+         'Strength and Stretch Movement Class'),
     ]
 
     class_id = models.AutoField(primary_key=True)
@@ -28,6 +35,10 @@ class ClassDetail(models.Model):
 
 
 class Booking(models.Model):
+    """
+    Model representing booking details.
+    :model: `Booking` and :model: `ClassDetail` and :model: `UserProfile`
+    """
     booking_id = models.AutoField(primary_key=True)
     member = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     booked_class = models.ForeignKey(ClassDetail, on_delete=models.CASCADE)

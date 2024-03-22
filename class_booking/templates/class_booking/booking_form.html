@@ -3,6 +3,7 @@
 
 {% block content %}
 
+<!-- Class booking page ONLY for logged in users -->
 {% if user.is_authenticated %}
   <div class="container justify-content-center">
     <div class="row">
@@ -16,6 +17,7 @@
             Wednesdays @ 5:15pm</div>
           <div class="col-md-10 border-bottom pb-3 pt-3"><span class="font-weight-bold">Strength & Stretch Movement Class class availability:</span> Fridays @ 2:45pm</div>
         </div>
+        <!-- Class booking form -->
         <form method="post" class="pt-4">
           {% csrf_token %}
           <div class="row justify-content-center">
@@ -25,7 +27,7 @@
           </div>          
           <div class="row justify-content-center">
             <div class="col-md-6">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Book Class</button>
             </div>
           </div>        
         </form>
@@ -33,6 +35,7 @@
     </div>
   </div>
 {% else %}
+<!-- If user is not logged in, redirect to login/register page -->
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-12">

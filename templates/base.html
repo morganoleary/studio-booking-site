@@ -22,7 +22,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <!-- Favicon -->
-    <link rel="icon" href="static/images/favicon.ico" />
+    <link rel="icon" href="static/images/favicon.ico">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
@@ -44,27 +44,29 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == schedule_url %}active{% endif %}" href="{% url 'class_schedule' %}">Class Schedule</a>
+                        <a class="nav-link {% if request.path == schedule_url %}active" aria-current="page{% endif %}" href="{% url 'class_schedule' %}">Class Schedule</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == contact_url %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
+                        <a class="nav-link {% if request.path == contact_url %}active" aria-current="page{% endif %}" href="{% url 'contact' %}">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == booking_url %}active{% endif %}" href="{% url 'booking' %}">Booking</a>
+                        <a class="nav-link {% if request.path == booking_url %}active" aria-current="page{% endif %}" href="{% url 'booking' %}">Booking</a>
                     </li>
+                    <!-- Menu options for logged in users only -->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == member_url %}active{% endif %}" href="{% url 'member' %}">Member Profile</a>
+                        <a class="nav-link {% if request.path == member_url %}active" aria-current="page{% endif %}" href="{% url 'member' %}">Member Profile</a>
                     </li>
                     <li class="nav-item">
-	                    <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" href="{% url 'account_logout' %}">Logout</a>
+	                    <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
+                    <!-- Options if user is not logged in -->
                     <li class="nav-item">
-	                    <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page" href="{% url 'account_signup' %}">Register</a>
+	                    <a class="nav-link {% if request.path == signup_url %}active" aria-current="page{% endif %}" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-	                    <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
+	                    <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -93,8 +95,8 @@
                           aria-label="Share our studio on Facebook! (Opens in a new tab)"
                           ><i class="fa-brands fa-square-facebook"></i
                         ></a>
-                      </span>
-                      <span class="social-icon">
+                    </span>
+                    <span class="social-icon">
                         <a
                           href="https://instagram.com/"
                           target="_blank"
@@ -102,8 +104,8 @@
                           aria-label="Share our studio on Instagram! (Opens in a new tab)"
                           ><i class="fa-brands fa-square-instagram"></i
                         ></a>
-                      </span>
-                      <span class="social-icon">
+                    </span>
+                    <span class="social-icon">
                         <a
                           href="https://twitter.com/"
                           target="_blank"
@@ -111,7 +113,7 @@
                           aria-label="Share our studio on Twitter! (Opens in a new tab)"
                           ><i class="fa-brands fa-square-twitter"></i
                         ></a>
-                      </span>
+                    </span>
                 </div>
             </div>
         </div>

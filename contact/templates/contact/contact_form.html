@@ -3,6 +3,7 @@
 
 {% block content %}
 
+<!-- Success message -->
 {% if messages %}
 {% for message in messages %}
 <div class="alert alert-success" role="alert">
@@ -11,6 +12,7 @@
 {% endfor %}
 {% endif %}
 
+<!-- Contact page -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -20,9 +22,8 @@
             <!-- Contact Us form-->
             <form method="post">
                 {% csrf_token %}
-                {{ contact_form|crispy }}
-                
-                <button type="submit" class="btn btn-secondary">Submit</button>
+                {{ contact_form|crispy }}  
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>

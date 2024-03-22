@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<!-- Success message -->
 {% if messages %}
 {% for message in messages %}
 <div class="alert alert-success" role="alert">
@@ -10,44 +11,54 @@
 {% endfor %}
 {% endif %}
 
+<!-- Member Profile page -->
 <div class="container">
     <div class="row col-md-12">
         <div class="col-md-6">
             <h4 class="text-center">Classes Booked</h4>
+            <!-- List the user's booked classes -->
             {% for booking in booked_classes %}
-              <li>{{ booking.booked_class }} - {{ booking.class_date }} - {{ booking.class_time }} 
-                <form action="{% url 'cancel_booking' booking.booking_id %}" method="post">
+              <ul>              
+                <li>{{ booking.booked_class }} - {{ booking.class_date }} - {{ booking.class_time }}
+                  <!-- Cancel class option for each booked class -->
+                  <form action="{% url 'cancel_booking' booking.booking_id %}" method="post">
                   {% csrf_token %}
-                  <button type="submit" class="btn btn-danger">Cancel Class</button>
-                </form>
-              </li>
+                    <button type="submit" class="btn btn-outline-secondary">Cancel Class</button>
+                  </form>
+                </li>
+              </ul>
             {% endfor %}
         </div>
         <div class="col-md-6">
           <h4 class="text-center">Personal Details</h4>
-          <!-- Display user's details -->
+          <!-- Display current user's details -->
           <div class="container">
               <div class="col-md-6">
-                  <p><strong>First Name:</strong> {{ user_profile.member.first_name }}</p>
-                  <p><strong>Last Name:</strong> {{ user_profile.member.last_name }}</p>
-                  <p><strong>Email:</strong> {{ user_profile.member.email }}</p>
-                  <p><strong>Phone:</strong> {{ user_profile.phone }}</p>
+                  <article class="m-2"><strong>First Name :</strong> {{ user_profile.member.first_name }}</article>
+                  <article class="m-2"><strong>Last Name :</strong> {{ user_profile.member.last_name }}</article>
+                  <article class="m-2"><strong>Email :</strong> {{ user_profile.member.email }}</article>
+                  <article class="m-2"><strong>Phone :</strong> {{ user_profile.phone }}</article>
               </div>
           </div>
-          <!-- Edit modal button -->
+          <!-- Edit profile modal button -->
           <div class="container">
-              <div class="col-md-6">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProfileModal">
+              <div class="col-md-6 m-2">
+                  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#editProfileModal">
                       Edit Profile
                   </button>
               </div>
           </div>
-      </div>
+          <div class="container">
+            <div class="col-md-12">
+              <p class="m-5">To cancel your account, please contact us directly.</p>
+            </div>
+          </div>
+        </div>
     </div>
 </div>
 
 
-<!-- Edit Profile Modal -->
+<!-- Edit Personal Details Modal -->
 <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog"   aria-labelledby="editProfileModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -63,6 +74,6 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
 {% endblock %}
